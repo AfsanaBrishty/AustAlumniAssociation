@@ -98,7 +98,7 @@ public class MenuFrame extends javax.swing.JFrame {
 
     private void stubtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stubtnActionPerformed
         // TODO add your handling code here:
-        new ApplyFrame().setVisible(true);
+        new SignInSignUp().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_stubtnActionPerformed
 
