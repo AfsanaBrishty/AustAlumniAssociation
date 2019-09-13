@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package austalumniassociationnb;
 
+import static austalumniassociationnb.RequestedApplyTable.jtRowData;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -12,7 +9,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -29,6 +28,7 @@ public class SignIn extends javax.swing.JFrame {
         Dimension size=toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
+    StuProfileFrame jtRowData = new StuProfileFrame();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -146,13 +146,50 @@ public class SignIn extends javax.swing.JFrame {
             ResultSet rs=pst.executeQuery();
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "ID and Password matched!!");
+               
+                String query2="Select * From MAINALUMNITABLE where ID=?";
+                 PreparedStatement pst2 = conn.prepareStatement(query2);
+                 pst2.setString(1,idtext.getText());
+                 ResultSet rs2=pst2.executeQuery();
+           if(rs2.next())
+           {
+                String FullName=rs2.getString("Fullname");
+                String ID=rs2.getString("id");
+                String MailID=rs2.getString("mailid");
+                String ContactNo=rs2.getString("contactno");
+                String Address=rs2.getString("address");
+                String CGPA=rs2.getString("cgpa");
+                String Gender=rs2.getString("gender");
+                String Department=rs2.getString("department");
+                String YearOfAdmission=rs2.getString("yearofadmission");
+                String PassingYear=rs2.getString("passingyear");
+           
                 idtext.setText("");
                 pass.setText("");
+                this.setVisible(false);
+                
+                jtRowData.setVisible(true);
+                jtRowData.pack();
+                jtRowData.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                
+                jtRowData.fullname.setText(FullName);
+                jtRowData.id.setText(ID);
+                jtRowData.email.setText(MailID);
+                jtRowData.contactno.setText(ContactNo);
+                jtRowData.address.setText(Address);
+                jtRowData.cgpa.setText(CGPA);
+                jtRowData.gen.setText(Gender);
+                jtRowData.dept.setText(Department);
+                jtRowData.addyear.setText(YearOfAdmission);
+                jtRowData.passyear.setText(PassingYear);
+           }
             }
             else{
-                JOptionPane.showMessageDialog(null, "ID and Password not correct!!");
+                JOptionPane.showMessageDialog(null, "ID and Password not correct.Please give the correct id or password!!");
                 idtext.setText("");
                 pass.setText("");
+                
+                
             }
             conn.close();
             
