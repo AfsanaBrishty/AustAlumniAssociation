@@ -39,6 +39,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        requestedapplytable_btn.setBackground(new java.awt.Color(0, 204, 255));
         requestedapplytable_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         requestedapplytable_btn.setForeground(new java.awt.Color(255, 0, 0));
         requestedapplytable_btn.setText("Requested Apply Table");
@@ -48,6 +49,7 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
+        mainalumnitable_btn.setBackground(new java.awt.Color(0, 204, 255));
         mainalumnitable_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         mainalumnitable_btn.setForeground(new java.awt.Color(255, 0, 0));
         mainalumnitable_btn.setText("Main Alumni Table");
@@ -58,6 +60,7 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
+        back_btn.setBackground(new java.awt.Color(0, 204, 255));
         back_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         back_btn.setForeground(new java.awt.Color(255, 0, 0));
         back_btn.setText("Back");
@@ -108,7 +111,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         // TODO add your handling code here:
-         new MenuFrame().setVisible(true);
+         new SignIn().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_btnActionPerformed
 

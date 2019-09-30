@@ -58,11 +58,6 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
      String PasswordEn = String.valueOf(str1);
      return PasswordEn;
     }
-    
-    
-    
-    
-    
      void setTable(JTable requestedapplytable,String FullName,String ID,String MailID,String ContactNo,String Address,String CGPA,String Gender,String Department,String YearOfAdmission,String PassingYear,String Password)
      {
          this.requestedapplytable=requestedapplytable;
@@ -335,7 +330,8 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
             
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Accepted!!");
-            clearFields();
+            //clearFields();
+            this.setVisible(false);
               Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
           int row= requestedapplytable.getSelectedRow();
           String id= (requestedapplytable.getModel().getValueAt(row, 1).toString());
@@ -365,7 +361,8 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
           removeSelectedRows(requestedapplytable);
           new RequestedApplyTable().Show_AppliedForm();
           JOptionPane.showMessageDialog(null, "Declined Successfully!!");
-          clearFields();
+          //clearFields();
+          this.setVisible(false);
           }catch(Exception e){
            JOptionPane.showMessageDialog(null, e);
        }

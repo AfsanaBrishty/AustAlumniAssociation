@@ -47,6 +47,7 @@ public class OpeningPage extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AUST ALUMNI ASSOCIATION MANAGEMENT SYSTEM\n");
 
+        startbtn.setBackground(new java.awt.Color(0, 204, 255));
         startbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         startbtn.setForeground(new java.awt.Color(102, 0, 0));
         startbtn.setText("START\n");
@@ -82,7 +83,7 @@ public class OpeningPage extends javax.swing.JFrame {
 
     private void startbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startbtnActionPerformed
         // TODO add your handling code here:
-        new MenuFrame().setVisible(true);
+        new SignIn().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_startbtnActionPerformed
 
