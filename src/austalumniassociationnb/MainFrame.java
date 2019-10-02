@@ -53,8 +53,8 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
             }
         if(combobox.getSelectedIndex()==3)
             {
-              //combobox2.setVisible(true);
-                System.out.println("Hello");
+              combobox2.setVisible(true);
+                //System.out.println("Hello");
             }
         if(combobox2.getSelectedIndex()==0)
             {
@@ -93,7 +93,7 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
         Statement st2;
         ResultSet rs2;
             if(combobox.getSelectedIndex()==0)
-            {
+            { 
              try{
                  Connection con = getConnection();
                  st2 = con.createStatement();
@@ -568,6 +568,11 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
         });
 
         combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Department", "CGPA" }));
+        combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -708,8 +713,21 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
             }
     }//GEN-LAST:event_combobox2ActionPerformed
 
+    private void comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxActionPerformed
+        // TODO add your handling code here:
+        if(combobox.getSelectedIndex()==3)
+            {
+             combobox2.setVisible(true);
+            }else
+        {
+            combobox2.setVisible(false);
+        }
+    }//GEN-LAST:event_comboboxActionPerformed
+
+
     public static void main(String args[]) {
-            }
+        }
+    
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MainAlumniTableJframe;
