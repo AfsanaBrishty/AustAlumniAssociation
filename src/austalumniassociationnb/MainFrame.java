@@ -33,7 +33,7 @@ import javax.swing.table.TableModel;
 public class MainFrame extends javax.swing.JFrame implements DocumentListener{
     public MainFrame() {
         initComponents();
-        //combobox2.setVisible(false);
+        combobox2.setVisible(false);
         Toolkit toolkit=getToolkit();
         Dimension size=toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
@@ -51,10 +51,11 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
             {
                 findDept();
             }
-        /*if(combobox.getSelectedIndex()==3)
+        if(combobox.getSelectedIndex()==3)
             {
-              combobox2.setVisible(true);
-            }*/
+              //combobox2.setVisible(true);
+                System.out.println("Hello");
+            }
         if(combobox2.getSelectedIndex()==0)
             {
               AllCG();
@@ -685,10 +686,11 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
             {
                 findDept();
             }
-        /*if(combobox.getSelectedIndex()==3)
+        if(combobox.getSelectedIndex()==3)
             {
-              combobox2.setVisible(true);
-            }*/
+              //combobox2.setVisible(true);
+                System.out.println("Hello");
+            }
     }//GEN-LAST:event_searchdataKeyReleased
 
     private void combobox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox2ActionPerformed
