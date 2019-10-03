@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package austalumniassociationnb;
 
 import java.awt.Dimension;
@@ -36,11 +31,12 @@ public class AdminMenu extends javax.swing.JFrame {
         requestedapplytable_btn = new javax.swing.JButton();
         mainalumnitable_btn = new javax.swing.JButton();
         back_btn = new javax.swing.JButton();
+        evbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         requestedapplytable_btn.setBackground(new java.awt.Color(0, 204, 255));
-        requestedapplytable_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        requestedapplytable_btn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
         requestedapplytable_btn.setForeground(new java.awt.Color(255, 0, 0));
         requestedapplytable_btn.setText("Requested Apply Table");
         requestedapplytable_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +46,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
 
         mainalumnitable_btn.setBackground(new java.awt.Color(0, 204, 255));
-        mainalumnitable_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        mainalumnitable_btn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
         mainalumnitable_btn.setForeground(new java.awt.Color(255, 0, 0));
         mainalumnitable_btn.setText("Main Alumni Table");
         mainalumnitable_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -61,12 +57,22 @@ public class AdminMenu extends javax.swing.JFrame {
         });
 
         back_btn.setBackground(new java.awt.Color(0, 204, 255));
-        back_btn.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        back_btn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
         back_btn.setForeground(new java.awt.Color(255, 0, 0));
         back_btn.setText("Back");
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_btnActionPerformed(evt);
+            }
+        });
+
+        evbtn.setBackground(new java.awt.Color(0, 204, 255));
+        evbtn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
+        evbtn.setForeground(new java.awt.Color(255, 0, 0));
+        evbtn.setText("Event Form");
+        evbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evbtnActionPerformed(evt);
             }
         });
 
@@ -79,19 +85,22 @@ public class AdminMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(requestedapplytable_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                     .addComponent(mainalumnitable_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(back_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(back_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(evbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(215, 215, 215))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(47, 47, 47)
                 .addComponent(requestedapplytable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(mainalumnitable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addGap(49, 49, 49)
+                .addComponent(evbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -114,6 +123,12 @@ public class AdminMenu extends javax.swing.JFrame {
          new SignIn().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_btnActionPerformed
+
+    private void evbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evbtnActionPerformed
+        // TODO add your handling code here:
+        new EventFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_evbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +167,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_btn;
+    private javax.swing.JButton evbtn;
     private javax.swing.JButton mainalumnitable_btn;
     private javax.swing.JButton requestedapplytable_btn;
     // End of variables declaration//GEN-END:variables
