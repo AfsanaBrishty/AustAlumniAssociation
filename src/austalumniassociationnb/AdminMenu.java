@@ -32,6 +32,8 @@ public class AdminMenu extends javax.swing.JFrame {
         mainalumnitable_btn = new javax.swing.JButton();
         back_btn = new javax.swing.JButton();
         evbtn = new javax.swing.JButton();
+        upcominhEventbtn = new javax.swing.JButton();
+        prevevbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,31 +78,68 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
+        upcominhEventbtn.setBackground(new java.awt.Color(0, 204, 255));
+        upcominhEventbtn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
+        upcominhEventbtn.setForeground(new java.awt.Color(255, 0, 0));
+        upcominhEventbtn.setText("Upcoming Events");
+        upcominhEventbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upcominhEventbtnActionPerformed(evt);
+            }
+        });
+
+        prevevbtn.setBackground(new java.awt.Color(0, 204, 255));
+        prevevbtn.setFont(new java.awt.Font("Berlin Sans FB", 3, 14)); // NOI18N
+        prevevbtn.setForeground(new java.awt.Color(255, 0, 0));
+        prevevbtn.setText("All Previous Events Details");
+        prevevbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevevbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(requestedapplytable_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                    .addComponent(mainalumnitable_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(back_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(evbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(215, 215, 215))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(requestedapplytable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mainalumnitable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                                .addComponent(evbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(prevevbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(upcominhEventbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addComponent(requestedapplytable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainalumnitable_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(evbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(upcominhEventbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prevevbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
                 .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addContainerGap())
         );
 
         pack();
@@ -129,6 +168,18 @@ public class AdminMenu extends javax.swing.JFrame {
         new EventFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_evbtnActionPerformed
+
+    private void upcominhEventbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upcominhEventbtnActionPerformed
+        // TODO add your handling code here:
+         new UpevAdmin().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_upcominhEventbtnActionPerformed
+
+    private void prevevbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevevbtnActionPerformed
+        // TODO add your handling code here:
+         new AllPrevEv().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_prevevbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +220,8 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JButton back_btn;
     private javax.swing.JButton evbtn;
     private javax.swing.JButton mainalumnitable_btn;
+    private javax.swing.JButton prevevbtn;
     private javax.swing.JButton requestedapplytable_btn;
+    private javax.swing.JButton upcominhEventbtn;
     // End of variables declaration//GEN-END:variables
 }

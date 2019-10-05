@@ -1,11 +1,11 @@
-
 package austalumniassociationnb;
-
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
@@ -327,12 +327,20 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
             pst.setString(10, passyear_.getText());
             String ps=PasswordDecryptor(Password);
             pst.setString(11,ps);
-            
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Accepted!!");
-            //clearFields();
+           
+            /*String idtxt=id_.getText();
+            String query2="UPDATE MAINALUMNITABLE\n" +
+                          "SET MAINALUMNITABLE.EventID = EVENT_table.EventID\n" +
+                          "FROM MAINALUMNITABLE\n" +
+                          "INNER JOIN EVENT_table\n" +
+                          "ON MAINALUMNITABLE.Department = EVENT_table.Department\n" +
+                          "AND EVENT_table.Status is NULL And MAINALUMNITABLE.ID='"+idtxt+"'";
+                  PreparedStatement pst2 = conn.prepareStatement(query2);
+                  pst2.executeQuery();*/
             this.setVisible(false);
-              Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+           Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
           int row= requestedapplytable.getSelectedRow();
           String id= (requestedapplytable.getModel().getValueAt(row, 1).toString());
           String query1="Delete From APPLYFRAMEDB where ID="+id;
@@ -340,6 +348,16 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
           pst1.executeUpdate();
           removeSelectedRows(requestedapplytable);
           new RequestedApplyTable().Show_AppliedForm();
+          
+          String idtxt=id_.getText();
+            String query2="UPDATE MAINALUMNITABLE\n" +
+                          "SET MAINALUMNITABLE.EventID = EVENT_table.EventID\n" +
+                          "FROM MAINALUMNITABLE\n" +
+                          "INNER JOIN EVENT_table\n" +
+                          "ON MAINALUMNITABLE.Department = EVENT_table.Department\n" +
+                          "AND EVENT_table.Status is NULL And MAINALUMNITABLE.ID='"+idtxt+"'";
+                  PreparedStatement pst2 = conn.prepareStatement(query2);
+                  pst2.executeUpdate();
        }catch(Exception e){
            JOptionPane.showMessageDialog(null, e);
        }

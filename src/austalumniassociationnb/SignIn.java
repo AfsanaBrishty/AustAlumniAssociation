@@ -1,7 +1,6 @@
-
 package austalumniassociationnb;
-
 import static austalumniassociationnb.RequestedApplyTable.jtRowData;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -19,8 +18,6 @@ public class SignIn extends javax.swing.JFrame {
             stuRadio.setSelected(false);
             adminRadio.setSelected(false);
     }
-   
-    
     public SignIn() {
         initComponents();
         Toolkit toolkit=getToolkit();
@@ -28,6 +25,7 @@ public class SignIn extends javax.swing.JFrame {
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
     StuProfileFrame jtRowData = new StuProfileFrame();
+    UpcomingEvents jtRowData2 = new UpcomingEvents();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -159,7 +157,6 @@ public class SignIn extends javax.swing.JFrame {
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
        if(stuRadio.isSelected())
        { 
-           //adminRadio.setSelected(false);
         try{
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
@@ -185,7 +182,8 @@ public class SignIn extends javax.swing.JFrame {
                 String CGPA=rs2.getString("cgpa");
                 String Gender=rs2.getString("gender");
                 String Department=rs2.getString("department");
-                String YearOfAdmission=rs2.getString("yearofadmission");
+                String YearOfAdmission=rs2.getString("yearofadm"
+                        + "ission");
                 String PassingYear=rs2.getString("passingyear");
            
                 idtext.setText("");
@@ -204,6 +202,25 @@ public class SignIn extends javax.swing.JFrame {
                 jtRowData.dept.setText(Department);
                 jtRowData.addyear.setText(YearOfAdmission);
                 jtRowData.passyear.setText(PassingYear);
+
+              String idtxt=jtRowData.id.getText();
+              String query3="SELECT EventID From MAINALUMNITABLE where ID='"+idtxt+"'";
+              PreparedStatement pst3 = conn.prepareStatement(query3);
+              ResultSet rs3=pst3.executeQuery();
+                  
+              String depttxt=jtRowData.dept.getText();
+              String query4="SELECT EventID From EVENT_table where Department='"+depttxt+"'  and Status is NULL";
+              PreparedStatement pst4 = conn.prepareStatement(query4);
+              ResultSet rs4=pst4.executeQuery();
+                  if(rs3.next()==rs4.next())
+                  {
+                jtRowData.nt.setText("You have upcoming events!");
+                      jtRowData.nt.setForeground(Color.red);
+                  }else
+                  {
+                      jtRowData.nt.setText("You have no upcoming event!");
+                      jtRowData.nt.setForeground(Color.red);
+                  }  
            }
             }
             else{
@@ -219,7 +236,6 @@ public class SignIn extends javax.swing.JFrame {
        }
        }else if(adminRadio.isSelected())
        {
-           //stuRadio.setSelected(false);
         try{
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
@@ -231,6 +247,7 @@ public class SignIn extends javax.swing.JFrame {
             if(rs3.next()){
                 JOptionPane.showMessageDialog(null, "ID and Password matched!!");
                 new AdminMenu().setVisible(true);
+                this.setVisible(false);
             }
 
             else{
@@ -247,6 +264,7 @@ public class SignIn extends javax.swing.JFrame {
        }else{
             JOptionPane.showMessageDialog(null, "Please select whether you are student or admin");
             }
+       
       
     }//GEN-LAST:event_login_btnActionPerformed
 
@@ -272,34 +290,7 @@ public class SignIn extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_adminRadioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SignIn().setVisible(true);
