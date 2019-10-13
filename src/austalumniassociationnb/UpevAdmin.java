@@ -1,6 +1,4 @@
-
 package austalumniassociationnb;
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -13,15 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-/**
- *
- * @author User
- */
 public class UpevAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UpevAdmin
-     */
     public UpevAdmin() {
         initComponents();
         Toolkit toolkit=getToolkit();
@@ -46,6 +37,20 @@ public class UpevAdmin extends javax.swing.JFrame {
                 us=new User3(rs.getInt("EventID"),rs.getString("EventName"),rs.getString("Department"),rs.getString("EventVenue"),rs.getString("EventDate"),rs.getString("EventTime"),rs.getString("EventMessage"));
             usersList.add(us);
             }
+           String query3="SELECT Count(Status) As Going\n" +
+                          "FROM MAINALUMNITABLE\n" +
+                          "GROUP BY Status, Department\n" +
+                          "HAVING ( COUNT(Status) > 0 and Status=1 and Department='CSE')";
+             Statement st2 = conn.createStatement();
+             ResultSet rs2 = st2.executeQuery(query3);
+            
+            if(rs2.next())
+            {
+             
+              int Count = rs2.getInt(1);
+               System.out.println(Count);
+            }
+            
         }
         catch(Exception e){
            JOptionPane.showMessageDialog(null, e);

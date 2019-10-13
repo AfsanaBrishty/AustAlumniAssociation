@@ -175,6 +175,13 @@ public class FullView3 extends javax.swing.JFrame {
             String query= "Update EVENT_table Set Status=1 where EventID='"+idtxt+"'";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.executeUpdate();
+            String dptt=dept.getText();
+            String query2= "Update MAINALUMNITABLE Set Status=0 where Department='"+dptt+"'";
+            PreparedStatement pst2 = conn.prepareStatement(query2);
+            pst2.executeUpdate();
+            
+            
+            
             JOptionPane.showMessageDialog(null, "Details Moved to All Previous Events Details Table");
             
             new UpevAdmin().setVisible(false);

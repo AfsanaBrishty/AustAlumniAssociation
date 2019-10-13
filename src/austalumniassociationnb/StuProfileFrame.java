@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 public class StuProfileFrame extends javax.swing.JFrame 
 {
+     UpcomingEvents jtRowData;
         public StuProfileFrame() {
         initComponents();
         Toolkit toolkit=getToolkit();
@@ -22,7 +23,7 @@ public class StuProfileFrame extends javax.swing.JFrame
         
         //nt.setVisible(false);
     }
-    UpcomingEvents jtRowData = new UpcomingEvents();
+    
     @SuppressWarnings("unchecked")
     
     private void EditFalse()
@@ -339,7 +340,6 @@ public class StuProfileFrame extends javax.swing.JFrame
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Updated Successfully!!");
             EditFalse();
-            
         }catch(Exception e){
            JOptionPane.showMessageDialog(null, e);
        }
@@ -352,12 +352,10 @@ public class StuProfileFrame extends javax.swing.JFrame
                       new SignIn().setVisible(true);
                       this.setVisible(false);
                   }
-                  
     }//GEN-LAST:event_LogoutbtnMouseClicked
 
     private void alumnitablebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnitablebtnActionPerformed
                       new MainFrame2().setVisible(true);
-                      
     }//GEN-LAST:event_alumnitablebtnActionPerformed
 
     private void alumnitablebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alumnitablebtnMouseClicked
@@ -371,6 +369,7 @@ public class StuProfileFrame extends javax.swing.JFrame
   Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
   Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
   String idtxt=id.getText();
+ 
   String query="SELECT MAINALUMNITABLE.ID, EVENT_table.EventName, EVENT_table.EventVenue,EVENT_table.EventDate,EVENT_table.EventTime,\n" +
                 "EVENT_table.EventMessage\n" +
                 "FROM MAINALUMNITABLE\n" +
@@ -386,7 +385,9 @@ public class StuProfileFrame extends javax.swing.JFrame
                    String EventDate=rs.getString("EventDate");
                    String EventTime=rs.getString("EventTime");
                    String EventMessage=rs.getString("EventMessage");
-                   
+                 
+                   jtRowData = new UpcomingEvents(idtxt);
+                    System.out.println(idtxt);
                 jtRowData.setVisible(true);
                 jtRowData.pack();
                 jtRowData.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

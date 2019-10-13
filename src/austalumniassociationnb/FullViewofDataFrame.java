@@ -147,7 +147,6 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
         cgpa_ = new javax.swing.JLabel();
         gender_ = new javax.swing.JLabel();
         dept_ = new javax.swing.JLabel();
-        sendmail = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,14 +199,6 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Password:");
 
-        sendmail.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        sendmail.setText("Send Mail");
-        sendmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendmailActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -238,12 +229,9 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
                         .addComponent(cgpa_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(gender_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dept_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mid_, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sendmail))
+                    .addComponent(mid_, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password_, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(acceptbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,8 +253,7 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(mid_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sendmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mid_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
@@ -387,12 +374,6 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
                   }
     }//GEN-LAST:event_declinebtnActionPerformed
 
-    private void sendmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendmailActionPerformed
-        // TODO add your handling code here:
-        new SendingMailFrame().setVisible(true);
-        //this.setVisible(false);
-    }//GEN-LAST:event_sendmailActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -453,6 +434,5 @@ public class FullViewofDataFrame extends javax.swing.JFrame {
     private javax.swing.JLabel mid_;
     private javax.swing.JLabel password_;
     private javax.swing.JLabel passyear_;
-    private javax.swing.JButton sendmail;
     // End of variables declaration//GEN-END:variables
 }

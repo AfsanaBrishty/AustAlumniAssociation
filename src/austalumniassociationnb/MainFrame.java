@@ -423,7 +423,8 @@ public class MainFrame extends javax.swing.JFrame implements DocumentListener{
         try{
             Connection con = getConnection();
             st7 = con.createStatement();
-            String searchQuery6 = "SELECT * FROM MAINALUMNITABLE WHERE CGPA<3.00";
+            //String searchQuery6 = "SELECT * FROM MAINALUMNITABLE WHERE CGPA<3.00";
+        String searchQuery6 = "SELECT * FROM MAINALUMNITABLE WHERE CGPA IN (Select CGPA From MAINALUMNITABLE WHERE CGPA<3.00)";
             rs7= st7.executeQuery(searchQuery6);
             
             User user7;

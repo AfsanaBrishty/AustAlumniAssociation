@@ -2,17 +2,29 @@ package austalumniassociationnb;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 public class UpcomingEvents extends javax.swing.JFrame {
-
-    public UpcomingEvents() {
+    String id;
+    
+    UpcomingEvents()
+    {
+      
+    }
+public UpcomingEvents(String id) {
+         
+        this.id=id;
         initComponents();
         Toolkit toolkit=getToolkit();
         Dimension size=toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
-
  
+     
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,10 +46,6 @@ public class UpcomingEvents extends javax.swing.JFrame {
         goingbtn = new javax.swing.JButton();
         interestedbtn = new javax.swing.JButton();
         cantgobtn = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        inq = new javax.swing.JTextArea();
-        sendbtn = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -108,21 +116,29 @@ public class UpcomingEvents extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Bodoni MT", 3, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Ask here for any inquiry");
-
-        inq.setColumns(20);
-        inq.setRows(5);
-        jScrollPane2.setViewportView(inq);
-
-        sendbtn.setFont(new java.awt.Font("Bodoni MT", 3, 12)); // NOI18N
-        sendbtn.setText("Send");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 9, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(et, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 517, Short.MAX_VALUE)
+                        .addComponent(cantgobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -145,37 +161,11 @@ public class UpcomingEvents extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(vn, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                             .addComponent(ed)
-                            .addComponent(en))))
+                            .addComponent(en)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 10, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(et, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cantgobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(59, 59, 59))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(sendbtn)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,21 +197,9 @@ public class UpcomingEvents extends javax.swing.JFrame {
                     .addComponent(goingbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(interestedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cantgobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(sendbtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                .addGap(82, 82, 82)
+                .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         pack();
@@ -233,33 +211,58 @@ public class UpcomingEvents extends javax.swing.JFrame {
     }//GEN-LAST:event_backbtnActionPerformed
 
     private void cantgobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantgobtnActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Thanks for you response!!");
-        cantgobtn.setForeground(Color.red);
-        interestedbtn.setForeground(Color.black);
-        goingbtn.setForeground(Color.black);
-        
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
+            String idtxt=id;
+            String query1="UPDATE MAINALUMNITABLE SET Status='3' where ID='"+idtxt+"'";
+            PreparedStatement pst1 = conn.prepareStatement(query1);
+            pst1.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Thanks for you response!!");
+            cantgobtn.setForeground(Color.red);
+            interestedbtn.setForeground(Color.black);
+            goingbtn.setForeground(Color.black);
+            
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_cantgobtnActionPerformed
 
     private void goingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goingbtnActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Thanks for you response!!");
-        goingbtn.setForeground(Color.red);
-        cantgobtn.setForeground(Color.black);
-        interestedbtn .setForeground(Color.black);
+         try{
+           Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
+            String idtxt=id;
+            //System.out.println(idtxt);
+            String query2="UPDATE MAINALUMNITABLE SET Status='1' where ID='"+idtxt+"'";
+            PreparedStatement pst2 = conn.prepareStatement(query2);
+            pst2.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Thanks for you response!!");
+            goingbtn.setForeground(Color.red);
+            cantgobtn.setForeground(Color.black);
+            interestedbtn .setForeground(Color.black);
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_goingbtnActionPerformed
 
     private void interestedbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interestedbtnActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Thanks for you response!!");
-        interestedbtn.setForeground(Color.red);
-        goingbtn.setForeground(Color.black);
-        cantgobtn.setForeground(Color.black);
+        try{
+           Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection( "jdbc:sqlserver://localhost:1433;databaseName=AustAlumniAssociationProject1;selectMethod=cursor", "sa", "123456");
+            String idtxt=id;
+            String query3="UPDATE MAINALUMNITABLE SET Status='2' where ID='"+idtxt+"'";
+            PreparedStatement pst3 = conn.prepareStatement(query3);
+            pst3.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Thanks for you response!!");
+           interestedbtn.setForeground(Color.red);
+           goingbtn.setForeground(Color.black);
+           cantgobtn.setForeground(Color.black);
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_interestedbtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -287,7 +290,7 @@ public class UpcomingEvents extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpcomingEvents().setVisible(true);
+               // new UpcomingEvents().setVisible(true);
             }
         });
     }
@@ -300,19 +303,15 @@ public class UpcomingEvents extends javax.swing.JFrame {
     public javax.swing.JTextField et;
     private javax.swing.JLabel eventnotification;
     private javax.swing.JButton goingbtn;
-    private javax.swing.JTextArea inq;
     private javax.swing.JButton interestedbtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextArea msg;
-    private javax.swing.JButton sendbtn;
     public javax.swing.JTextField vn;
     // End of variables declaration//GEN-END:variables
 }

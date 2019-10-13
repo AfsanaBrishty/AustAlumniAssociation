@@ -51,14 +51,10 @@
                       <Component id="gender_" alignment="0" max="32767" attributes="0"/>
                       <Component id="dept_" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="mid_" min="-2" pref="316" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sendmail" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="mid_" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
                   <Component id="password_" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
@@ -86,7 +82,6 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel3" pref="40" max="32767" attributes="0"/>
                   <Component id="mid_" max="32767" attributes="0"/>
-                  <Component id="sendmail" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -270,17 +265,6 @@
     <Component class="javax.swing.JLabel" name="gender_">
     </Component>
     <Component class="javax.swing.JLabel" name="dept_">
-    </Component>
-    <Component class="javax.swing.JButton" name="sendmail">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Send Mail"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendmailActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
